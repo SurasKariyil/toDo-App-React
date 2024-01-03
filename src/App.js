@@ -6,8 +6,8 @@ import './App.css';
 function App() {
   const [toDos, setTodos] = useState([])
   const [toDo, setTodo] = useState('')
-  const date=new Date().getDay().toString();
-  const month=new Date()toString();
+  const date = new Date().toString();
+
 
   return (
     <div className="app">
@@ -16,41 +16,43 @@ function App() {
       </div>
       <div className="subHeading">
         <br />
-       
-        <h2><i>Whoop, it's {date} th {month}🌝 ☕ </i></h2>
+
+        <h2><i>Whoop, it's {date} </i></h2>
       </div>
       <div className="input">
         <input value={toDo} onChange={(e) => setTodo(e.target.value)} type="text" placeholder="🖊️ Add item..." />
-        <i onClick={()=>setTodos([...toDos,{id:Date.now(),text:toDo,status:false}])} className="fas fa-plus"></i>
+        <i onClick={() => setTodos([...toDos, { id: Date.now(), text: toDo, status: false }])} className="fas fa-plus"></i>
       </div>
       <div className="todos">
         {toDos.map((obj) => {
-      return (  <div className="todo">
+          return (<div className="todo">
             <div className="left">
-              <input onChange={(e)=>{
+              <input onChange={(e) => {
                 console.log(e.target.checked);
                 console.log(obj)
-                setTodos(toDos.filter(obj2=>{
-                  if(obj2.id==obj.id){
-                    obj2.status=e.target.checked
+                setTodos(toDos.filter(obj2 => {
+                  if (obj2.id == obj.id) {
+                    obj2.status = e.target.checked
                   }
                   return obj2
                 }))
               }} value={obj.status} type="checkbox" name="" id="" />
               <p>{obj.text}</p>
-              
+
             </div>
             <div className="right">
               <i className="fas fa-times"></i>
             </div>
-          </div> )
+          </div>)
         })}
         <br></br>
-     <h><i>Compleated list</i></h>
+        <h><i>Compleated list</i></h>
         {
-          toDos.map((obj)=>{
-            if(obj.status){
-              return(<h2>{obj.text}</h2>)
+          toDos.map((obj) => {
+            if (obj.status) {
+              return (<ul>
+                <li>{obj.text}</li>
+              </ul>)
             }
             return null
           })

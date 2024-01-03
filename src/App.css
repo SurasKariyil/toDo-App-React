@@ -4,7 +4,7 @@
   }
   
   body {
-    background-color: #020631;
+    background-color: black;
   }
   
   .app {
@@ -18,9 +18,10 @@
     text-align: center;
   }
   
-  .app h1,
+  .app li,
   h2 {
-    color: white;
+    font-style:italic;
+    color: greenyellow;
   }
   
   .app .input {
@@ -52,7 +53,7 @@
     cursor: pointer;
     font-size: larger;
     font-weight: 900;
-    color: grey;
+    color:red;
     margin-right: 5px;
   }
   .app .todos {
@@ -83,5 +84,5 @@
     font-size: medium;
     font-weight: 700;
     font-style: normal;
-    color: grey;
+    color: blue;
   }
