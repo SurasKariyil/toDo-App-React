@@ -12,12 +12,12 @@ function App() {
   return (
     <div className="app">
       <div className="mainHeading">
-        <h1><i>ToDo List</i></h1>
+        <h1><i>ToDo  List</i></h1>
       </div>
       <div className="subHeading">
         <br />
 
-        <h2><i>Whoop, it's {date} </i></h2>
+        <h2><i>Heyy , it's {date} </i></h2>
       </div>
       <div className="input">
         <input value={toDo} onChange={(e) => setTodo(e.target.value)} type="text" placeholder="🖊️ Add item..." />
