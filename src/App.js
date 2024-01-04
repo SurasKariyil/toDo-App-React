@@ -5,6 +5,7 @@ import './App.css';
 
 function App() {
   const [toDos, setTodos] = useState([])
+  const [dtTodo,setDlt] = useState([])
   const [toDo, setTodo] = useState('')
   const date = new Date().toString();
 
@@ -23,9 +24,12 @@ function App() {
         <input value={toDo} onChange={(e) => setTodo(e.target.value)} type="text" placeholder="🖊️ Add item..." />
         <i onClick={() => setTodos([...toDos, { id: Date.now(), text: toDo, status: false }])} className="fas fa-plus"></i>
       </div>
+   
+      
       <div className="todos">
         {toDos.map((obj) => {
-          return (<div className="todo">
+          return ( <div className="todo">
+          <h><i>! Pending...</i></h>
             <div className="left">
               <input onChange={(e) => {
                 console.log(e.target.checked);
@@ -51,7 +55,17 @@ function App() {
           toDos.map((obj) => {
             if (obj.status) {
               return (<ul>
-                <li>{obj.text}</li>
+                <li>{obj.text}</li> 
+                <button onClick={(e)=>{
+                  console.log(e.target.value)
+                  setDlt(toDos.filter(dtTodo=>{
+                    if(dtTodo.id == obj.id){
+                      dtTodo.status=e.target.value
+                      dtTodo.status = e.target.checked
+                      }
+                      return dtTodo
+                  }))
+                }}><b>Clear Task</b></button>
               </ul>)
             }
             return null

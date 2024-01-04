@@ -86,3 +86,12 @@
     font-style: normal;
     color: blue;
   }
+  button{
+    font-style: italic;
+    color:white;
+    background-color:red;
+    padding: 3px;
+  }
+  h{
+    justify-content: center;
+  }
